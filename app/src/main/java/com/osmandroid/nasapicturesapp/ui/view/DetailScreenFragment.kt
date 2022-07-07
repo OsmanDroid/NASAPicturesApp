@@ -1,4 +1,4 @@
-package com.osmandroid.nasapicturesapp.ui
+package com.osmandroid.nasapicturesapp.ui.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,14 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.osmandroid.nasapicturesapp.R
-import com.osmandroid.nasapicturesapp.databinding.FragmentGridScreenBinding
+import com.osmandroid.nasapicturesapp.databinding.FragmentDetailScreenBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
-class GridScreenFragment : Fragment() {
+@AndroidEntryPoint
+class DetailScreenFragment : Fragment() {
 
-    private var _binding: FragmentGridScreenBinding? = null
+    private var _binding: FragmentDetailScreenBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,9 +22,9 @@ class GridScreenFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
-        _binding = FragmentGridScreenBinding.inflate(inflater, container, false)
+        _binding = FragmentDetailScreenBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -33,8 +32,8 @@ class GridScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        binding.buttonSecond.setOnClickListener {
+            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
     }
 

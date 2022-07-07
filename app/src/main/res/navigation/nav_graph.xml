@@ -7,8 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.osmandroid.nasapicturesapp.ui.GridScreenFragment"
-        android:label="@string/first_fragment_label"
+        android:name="com.osmandroid.nasapicturesapp.ui.view.GridScreenFragment"
         tools:layout="@layout/fragment_grid_screen">
 
         <action
@@ -17,8 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.osmandroid.nasapicturesapp.ui.DetailScreenFragment"
-        android:label="@string/second_fragment_label"
+        android:name="com.osmandroid.nasapicturesapp.ui.view.DetailScreenFragment"
         tools:layout="@layout/fragment_detail_screen">
 
         <action

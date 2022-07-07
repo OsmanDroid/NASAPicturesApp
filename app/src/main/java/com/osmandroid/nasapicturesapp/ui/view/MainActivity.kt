@@ -1,4 +1,4 @@
-package com.osmandroid.nasapicturesapp.ui
+package com.osmandroid.nasapicturesapp.ui.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +8,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.osmandroid.nasapicturesapp.R
 import com.osmandroid.nasapicturesapp.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
