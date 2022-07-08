@@ -14,6 +14,7 @@ import com.osmandroid.nasapicturesapp.databinding.FragmentDetailScreenBinding
 import com.osmandroid.nasapicturesapp.ui.adapter.DetailViewPagerAdapter
 import com.osmandroid.nasapicturesapp.ui.viewmodel.NasaPicturesViewModel
 import com.osmandroid.nasapicturesapp.utils.Resource
+import com.osmandroid.nasapicturesapp.utils.ZoomInTransformer
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -61,6 +62,7 @@ class DetailScreenFragment : Fragment() {
         viewPager.apply {
             adapter = detailsPagerAdapter
             setCurrentItem(args.position, false)
+            setPageTransformer(ZoomInTransformer())
         }
     }
 
