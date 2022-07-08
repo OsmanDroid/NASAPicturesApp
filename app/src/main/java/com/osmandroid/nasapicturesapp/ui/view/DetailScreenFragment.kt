@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
+import androidx.transition.TransitionInflater
 import com.google.android.material.snackbar.Snackbar
 import com.osmandroid.nasapicturesapp.R
 import com.osmandroid.nasapicturesapp.databinding.FragmentDetailScreenBinding
@@ -24,7 +25,11 @@ class DetailScreenFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private val detailsPagerAdapter: DetailViewPagerAdapter by lazy { DetailViewPagerAdapter() }
+    private val detailsPagerAdapter: DetailViewPagerAdapter by lazy {
+        DetailViewPagerAdapter {
+            this.startPostponedEnterTransition()
+        }
+    }
     private val viewModel: NasaPicturesViewModel by activityViewModels()
     private val args: DetailScreenFragmentArgs by navArgs()
 
@@ -41,9 +46,15 @@ class DetailScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        postponeEnterTransition()
         setupViews()
         setupObservers()
+
+        val animation = TransitionInflater.from(requireContext()).inflateTransition(
+            android.R.transition.move
+        )
+        sharedElementEnterTransition = animation
+        sharedElementReturnTransition = animation
     }
 
     private fun setupViews() = with(binding) {

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.snackbar.Snackbar
@@ -29,9 +30,10 @@ class GridScreenFragment : Fragment() {
     private val viewModel: NasaPicturesViewModel by activityViewModels()
 
     private val gridListAdapter: GridListAdapter by lazy {
-        GridListAdapter(onClick = { position ->
+        GridListAdapter(onClick = { view, position ->
+            val extras = FragmentNavigatorExtras(view to view.transitionName)
             val action = GridScreenFragmentDirections.actionGridFragmentToDetailFragment(position)
-            findNavController().navigate(action)
+            findNavController().navigate(action, extras)
         })
     }
 

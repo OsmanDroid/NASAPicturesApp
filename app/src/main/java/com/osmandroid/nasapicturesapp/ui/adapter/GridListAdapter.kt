@@ -1,6 +1,7 @@
 package com.osmandroid.nasapicturesapp.ui.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.osmandroid.nasapicturesapp.R
@@ -10,7 +11,7 @@ import com.osmandroid.nasapicturesapp.ui.adapter.viewholder.GridItemViewHolder
 import com.osmandroid.nasapicturesapp.utils.NasaItemDiffUtil
 
 class GridListAdapter(
-    private val onClick: (position: Int) -> Unit
+    private val onClick: (view: View, position: Int) -> Unit
 ) : ListAdapter<NasaItem, GridItemViewHolder>(NasaItemDiffUtil()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridItemViewHolder {
         val view =
