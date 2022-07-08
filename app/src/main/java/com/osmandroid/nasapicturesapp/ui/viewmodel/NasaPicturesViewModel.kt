@@ -16,7 +16,7 @@ import javax.inject.Inject
 class NasaPicturesViewModel @Inject constructor(private val nasaRepo: NasaRepo) : ViewModel() {
 
     private val _picturesList = MutableLiveData<Resource<List<NasaItem>>>()
-    val picturesList get() = _picturesList as LiveData<*>
+    val picturesList get() = _picturesList as LiveData<Resource<List<NasaItem>>>
 
     init {
         getPicturesList()

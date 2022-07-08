@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.osmandroid.nasapicturesapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".NasaPicturesApp"
         android:allowBackup="true"
@@ -18,7 +20,8 @@
             android:name=".ui.view.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.NASAPicturesApp.NoActionBar">
+            android:theme="@style/Theme.NASAPicturesApp.NoActionBar"
+            tools:ignore="RedundantLabel">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
