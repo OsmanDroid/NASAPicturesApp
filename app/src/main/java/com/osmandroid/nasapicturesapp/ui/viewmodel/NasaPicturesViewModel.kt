@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.osmandroid.nasapicturesapp.data.model.NasaItem
 import com.osmandroid.nasapicturesapp.data.repository.NasaRepo
+import com.osmandroid.nasapicturesapp.utils.Extensions.getLocalDate
 import com.osmandroid.nasapicturesapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
@@ -28,7 +29,9 @@ class NasaPicturesViewModel @Inject constructor(private val nasaRepo: NasaRepo) 
             nasaRepo.getPictures().catch {
                 _picturesList.postValue(Resource.Failure(errorBody = it))
             }.collect {
-                _picturesList.postValue(Resource.Success(it.reversed()))
+                _picturesList.postValue(Resource.Success(it.sortedByDescending { nasaItem ->
+                    nasaItem.date.getLocalDate()
+                }))
             }
         }
     }

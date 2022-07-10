@@ -10,6 +10,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.osmandroid.nasapicturesapp.data.model.NasaItem
 import com.osmandroid.nasapicturesapp.databinding.DetailItemBinding
+import com.osmandroid.nasapicturesapp.utils.Extensions.getAbbreviatedDate
 import com.osmandroid.nasapicturesapp.utils.Extensions.getCircularProgressDrawable
 
 class DetailItemViewHolder(
@@ -19,7 +20,7 @@ class DetailItemViewHolder(
     RecyclerView.ViewHolder(binding.root) {
     fun bind(item: NasaItem) = with(binding) {
         title.text = item.title
-        dateTextView.text = item.date
+        dateTextView.text = item.date.getAbbreviatedDate()
         description.text = item.explanation
         item.copyright?.let {
             copyright.text = it
