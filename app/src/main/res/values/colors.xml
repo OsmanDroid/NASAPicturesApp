@@ -10,7 +10,7 @@
 
     <color name="text_color_dark">#FF000000</color>
     <color name="text_color_grey">#818080</color>
-
     <color name="text_color_light">#FFFFFFFF</color>
+    <color name="bg_color_grey">#818080</color>
 
 </resources>

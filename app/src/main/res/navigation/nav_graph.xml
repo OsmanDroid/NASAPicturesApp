@@ -11,6 +11,7 @@
         tools:layout="@layout/fragment_grid_screen">
 
         <action
+            app:popExitAnim="@android:anim/fade_out"
             android:id="@+id/action_GridFragment_to_DetailFragment"
             app:destination="@id/DetailFragment">
 

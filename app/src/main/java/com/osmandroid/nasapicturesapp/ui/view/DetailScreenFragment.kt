@@ -13,6 +13,7 @@ import com.osmandroid.nasapicturesapp.R
 import com.osmandroid.nasapicturesapp.databinding.FragmentDetailScreenBinding
 import com.osmandroid.nasapicturesapp.ui.adapter.DetailViewPagerAdapter
 import com.osmandroid.nasapicturesapp.ui.viewmodel.NasaPicturesViewModel
+import com.osmandroid.nasapicturesapp.utils.Extensions.visible
 import com.osmandroid.nasapicturesapp.utils.Resource
 import com.osmandroid.nasapicturesapp.utils.ZoomInTransformer
 import dagger.hilt.android.AndroidEntryPoint
@@ -55,7 +56,6 @@ class DetailScreenFragment : Fragment() {
             android.R.transition.move
         )
         sharedElementEnterTransition = animation
-        sharedElementReturnTransition = animation
     }
 
     private fun setupViews() = with(binding) {
@@ -68,6 +68,7 @@ class DetailScreenFragment : Fragment() {
 
     private fun setupObservers() = with(binding) {
         viewModel.picturesList.observe(viewLifecycleOwner) { result ->
+            progressBar.visible(result is Resource.Loading)
             when (result) {
                 is Resource.Loading -> {
 
